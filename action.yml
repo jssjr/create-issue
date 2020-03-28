@@ -10,9 +10,14 @@ inputs:
   labels:
     description: 'issue labels'
     required: false
+  assignees:
+    description: 'issue assignees'
+    required: false
 outputs:
   id:
     description: 'id of the created issue'
+  url:
+    description: 'url of the created issue'
   number:
     description: 'number of the created issue'
 runs:

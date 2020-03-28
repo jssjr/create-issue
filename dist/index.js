@@ -1102,20 +1102,17 @@ function listToArray (list) {
 
 async function run() {
   try { 
-    console.log(tools.inputs.title);
-    console.log(tools.inputs.body);
-    console.log(tools.inputs.labels);
     const newIssue = await tools.github.issues.create({
       ...tools.context.repo,
       title: tools.inputs.title,
       body: tools.inputs.body,
-      labels: listToArray(tools.inputs.labels)
+      labels: listToArray(tools.inputs.labels),
+      assignees: listToArray(tools.inputs.assignees)
     })
 
-    console.log(newIssue);
-
-    core.setOutput('number', newIssue.number);
-    core.setOutput('id', newIssue.id);
+    core.setOutput('id', newIssue.data.id);
+    core.setOutput('url', newIssue.data.url);
+    core.setOutput('number', newIssue.data.number);
   } 
   catch (error) {
     core.setFailed(error.message);
