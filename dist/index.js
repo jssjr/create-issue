@@ -1097,6 +1097,7 @@ const tools = new Toolkit()
 
 async function run() {
   try { 
+    console.log(tools.inputs);
     const newIssue = await tools.github.issues.create({
       ...tools.context.repo,
       title: tools.inputs.title,
