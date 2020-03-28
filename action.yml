@@ -7,6 +7,9 @@ inputs:
   body:
     description: 'issue body'
     required: true
+  labels:
+    description: 'issue labels'
+    required: false
 outputs:
   id:
     description: 'id of the created issue'
