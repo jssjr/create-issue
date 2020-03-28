@@ -3,6 +3,11 @@ const core = require('@actions/core');
 const { Toolkit } = require('actions-toolkit')
 const tools = new Toolkit()
 
+function listToArray (list) {
+  if (!list) return []
+  return Array.isArray(list) ? list : list.split(', ')
+}
+
 async function run() {
   try { 
     console.log(tools.inputs.title);
@@ -12,7 +17,7 @@ async function run() {
       ...tools.context.repo,
       title: tools.inputs.title,
       body: tools.inputs.body,
-      labels: tools.inputs.labels.split(',')
+      labels: listToArray(tools.inputs.labels)
     })
 
     console.log(newIssue);

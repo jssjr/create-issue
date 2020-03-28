@@ -1095,6 +1095,11 @@ const core = __webpack_require__(470);
 const { Toolkit } = __webpack_require__(461)
 const tools = new Toolkit()
 
+function listToArray (list) {
+  if (!list) return []
+  return Array.isArray(list) ? list : list.split(', ')
+}
+
 async function run() {
   try { 
     console.log(tools.inputs.title);
@@ -1104,7 +1109,7 @@ async function run() {
       ...tools.context.repo,
       title: tools.inputs.title,
       body: tools.inputs.body,
-      labels: tools.inputs.labels.split(',')
+      labels: listToArray(tools.inputs.labels)
     })
 
     console.log(newIssue);
