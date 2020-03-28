@@ -12,7 +12,7 @@ async function run() {
       ...tools.context.repo,
       title: tools.inputs.title,
       body: tools.inputs.body,
-      labels: tools.inputs.labels
+      labels: tools.inputs.labels.split(',')
     })
 
     console.log(newIssue);
