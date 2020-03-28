@@ -1091,7 +1091,9 @@ module.exports = options => {
 /***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
 
 const core = __webpack_require__(470);
-const tools = __webpack_require__(461);
+
+const { Toolkit } = __webpack_require__(461)
+const tools = new Toolkit()
 
 async function run() {
   try { 

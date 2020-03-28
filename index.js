@@ -1,5 +1,7 @@
 const core = require('@actions/core');
-const tools = require('actions-toolkit');
+
+const { Toolkit } = require('actions-toolkit')
+const tools = new Toolkit()
 
 async function run() {
   try { 
