@@ -1,0 +1,17 @@
+name: 'Create Issue'
+description: 'Create an issue'
+inputs:
+  title:
+    description: 'issue title'
+    required: true
+  body:
+    description: 'issue body'
+    required: true
+outputs:
+  id:
+    description: 'id of the created issue'
+  number:
+    description: 'number of the created issue'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
